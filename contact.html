@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Will Herring</title>
+  <meta name="description" content="Get in touch with Will Herring — creative director, writer, and game maker based in Toronto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --coral: #D85A30; --coral-light: #FAECE7;
+      --ink: #1a1814; --ink-mid: #4a4844; --ink-light: #8a8784; --ink-faint: #e8e5e0;
+      --page: #faf9f7; --white: #ffffff;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --max-w: 1040px; --pad: 2rem;
+    }
+    html { font-size: 16px; }
+    body { font-family: var(--font-body); background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .site-wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    .nav { display: flex; justify-content: space-between; align-items: baseline; padding: 2rem 0 1.75rem; border-bottom: 1px solid var(--ink-faint); }
+    .nav-logo { font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; color: var(--ink-mid); transition: color 0.15s ease; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--coral); transition: width 0.2s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--ink); }
+    .contact-wrap { min-height: 60vh; display: flex; align-items: center; padding: 5rem 0; }
+    .contact-inner { max-width: 560px; }
+    .page-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--coral); }
+    .contact-heading { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing: -0.02em; line-height: 1.2; color: var(--ink); margin-bottom: 1.5rem; }
+    .contact-heading em { font-style: italic; color: var(--ink-mid); }
+    .contact-body { font-size: 1.0625rem; font-weight: 300; line-height: 1.75; color: var(--ink-mid); margin-bottom: 2.5rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 0.875rem; }
+    .contact-link { display: flex; align-items: center; gap: 1rem; padding: 1.125rem 1.5rem; border-radius: 10px; border: 1px solid var(--ink-faint); background: var(--white); transition: all 0.2s ease; }
+    .contact-link:hover { border-color: var(--coral); transform: translateX(4px); }
+    .contact-link-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-link-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-link-icon.email { background: var(--coral-light); color: var(--coral); }
+    .contact-link-icon.linkedin { background: #E6F1FB; color: #185FA5; }
+    .contact-link-icon.cv { background: var(--ink-faint); color: var(--ink-mid); }
+    .contact-link-text { flex: 1; }
+    .contact-link-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.2rem; }
+    .contact-link-value { font-size: 0.9375rem; font-weight: 400; color: var(--ink); }
+    .contact-link-arrow { width: 14px; height: 14px; stroke: var(--ink-light); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s ease, stroke 0.2s ease; flex-shrink: 0; }
+    .contact-link:hover .contact-link-arrow { stroke: var(--coral); transform: translateX(2px); }
+    .site-footer { border-top: 1px solid var(--ink-faint); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .footer-name { font-family: var(--font-display); font-size: 0.9375rem; color: var(--ink-mid); }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a { font-size: 0.8125rem; color: var(--ink-light); transition: color 0.15s ease; }
+    .footer-links a:hover { color: var(--coral); }
+    @media (max-width: 720px) { :root { --pad: 1.25rem; } .nav-links { gap: 1.25rem; } .contact-wrap { padding: 3rem 0; min-height: auto; } .site-footer { flex-direction: column; align-items: flex-start; gap: 1rem; } }
+    @media (max-width: 480px) { .nav-links { gap: 1rem; } .nav-links a { font-size: 0.8125rem; } }
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+    <nav class="nav">
+      <a href="/" class="nav-logo">Will Herring</a>
+      <ul class="nav-links">
+        <li><a href="/">Work</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/cv.html">CV</a></li>
+        <li><a href="/contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="contact-wrap">
+      <div class="contact-inner">
+        <p class="page-eyebrow">Contact</p>
+        <h1 class="contact-heading">Let's make<br><em>something good.</em></h1>
+        <p class="contact-body">Whether you're building a game, working on a campaign, or have a project that doesn't fit neatly into a category — I'd love to hear about it.</p>
+        <div class="contact-links">
+          <a href="mailto:will@likethefish.net" class="contact-link">
+            <div class="contact-link-icon email">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-link-text">
+              <p class="contact-link-label">Email</p>
+              <p class="contact-link-value">will@likethefish.net</p>
+            </div>
+            <svg class="contact-link-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/will-herring-9464b617" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon linkedin">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div class="contact-link-text">
+              <p class="contact-link-label">LinkedIn</p>
+              <p class="contact-link-value">linkedin.com/in/will-herring-9464b617</p>
+            </div>
+            <svg class="contact-link-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="/cv.html" class="contact-link">
+            <div class="contact-link-icon cv">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div class="contact-link-text">
+              <p class="contact-link-label">CV</p>
+              <p class="contact-link-value">View full work history</p>
+            </div>
+            <svg class="contact-link-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <span class="footer-name">Will Herring</span>
+      <ul class="footer-links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/cv.html">CV</a></li>
+        <li><a href="mailto:will@likethefish.net">will@likethefish.net</a></li>
+        <li><a href="https://linkedin.com/in/will-herring-9464b617" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>
