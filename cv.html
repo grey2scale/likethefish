@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Will Herring</title>
+  <meta name="description" content="CV — Will Herring, creative director, writer, and game maker.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --coral: #D85A30; --coral-light: #FAECE7;
+      --ink: #1a1814; --ink-mid: #4a4844; --ink-light: #8a8784; --ink-faint: #e8e5e0;
+      --page: #faf9f7; --white: #ffffff;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --max-w: 1040px; --pad: 2rem;
+    }
+    html { font-size: 16px; }
+    body { font-family: var(--font-body); background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .site-wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad); }
+    .nav { display: flex; justify-content: space-between; align-items: baseline; padding: 2rem 0 1.75rem; border-bottom: 1px solid var(--ink-faint); }
+    .nav-logo { font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; color: var(--ink-mid); transition: color 0.15s ease; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--coral); transition: width 0.2s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--ink); }
+    .page-header { padding: 4rem 0 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; }
+    .page-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--coral); }
+    .page-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing: -0.02em; line-height: 1.2; color: var(--ink); }
+    .download-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; font-weight: 500; padding: 9px 18px; border-radius: 100px; border: 1px solid var(--ink-faint); color: var(--ink-mid); background: var(--white); transition: all 0.15s ease; white-space: nowrap; }
+    .download-link:hover { border-color: var(--ink-mid); color: var(--ink); }
+    .download-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .cv-layout { display: grid; grid-template-columns: 1fr 280px; gap: 5rem; padding-bottom: 5rem; align-items: start; }
+    .cv-section { margin-bottom: 3.5rem; }
+    .cv-section:last-child { margin-bottom: 0; }
+    .cv-section-title { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); padding-bottom: 0.875rem; border-bottom: 1px solid var(--ink-faint); margin-bottom: 2rem; }
+    .cv-role { margin-bottom: 2.5rem; }
+    .cv-role:last-child { margin-bottom: 0; }
+    .cv-role-header { margin-bottom: 0.875rem; }
+    .cv-company { font-family: var(--font-display); font-size: 1.25rem; letter-spacing: -0.01em; color: var(--ink); line-height: 1.2; }
+    .cv-position { font-size: 0.9375rem; font-weight: 500; color: var(--ink-mid); margin-top: 0.2rem; }
+    .cv-meta { display: flex; gap: 1rem; margin-top: 0.375rem; flex-wrap: wrap; }
+    .cv-date { font-size: 0.8125rem; color: var(--ink-light); }
+    .cv-location { font-size: 0.8125rem; color: var(--ink-light); }
+    .cv-location::before { content: '·'; margin-right: 1rem; }
+    .cv-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+    .cv-bullets li { font-size: 0.9rem; font-weight: 300; line-height: 1.65; color: var(--ink-mid); padding-left: 1.125rem; position: relative; }
+    .cv-bullets li::before { content: '–'; position: absolute; left: 0; color: var(--ink-light); }
+    .cv-clients { margin-top: 1rem; font-size: 0.8125rem; color: var(--ink-light); line-height: 1.6; }
+    .cv-clients strong { font-weight: 500; color: var(--ink-mid); }
+    .cv-credits { margin-top: 1rem; }
+    .cv-credits-title { font-size: 0.8125rem; font-weight: 500; color: var(--ink-mid); margin-bottom: 0.5rem; }
+    .cv-credits-list { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
+    .cv-credits-list li { font-size: 0.8125rem; color: var(--ink-light); font-weight: 300; line-height: 1.5; }
+    .cv-credits-list li strong { font-weight: 500; color: var(--ink-mid); }
+    .cv-sidebar { padding-top: 0.25rem; }
+    .sidebar-block { margin-bottom: 2.5rem; }
+    .sidebar-block:last-child { margin-bottom: 0; }
+    .sidebar-label { font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.875rem; padding-bottom: 0.875rem; border-bottom: 1px solid var(--ink-faint); }
+    .sidebar-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .sidebar-list li { font-size: 0.875rem; color: var(--ink-mid); font-weight: 300; line-height: 1.5; }
+    .sidebar-list li strong { font-weight: 500; color: var(--ink); display: block; font-size: 0.9rem; }
+    .sidebar-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-top: 0.25rem; }
+    .sidebar-tag { font-size: 0.75rem; padding: 4px 10px; border-radius: 100px; border: 1px solid var(--ink-faint); color: var(--ink-mid); background: var(--white); }
+    .site-footer { border-top: 1px solid var(--ink-faint); padding: 2rem 0; display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .footer-name { font-family: var(--font-display); font-size: 0.9375rem; color: var(--ink-mid); }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a { font-size: 0.8125rem; color: var(--ink-light); transition: color 0.15s ease; }
+    .footer-links a:hover { color: var(--coral); }
+    @media (max-width: 860px) { .cv-layout { grid-template-columns: 1fr; gap: 2rem; } .cv-sidebar { border-top: 1px solid var(--ink-faint); padding-top: 2.5rem; } }
+    @media (max-width: 720px) { :root { --pad: 1.25rem; } .nav-links { gap: 1.25rem; } .page-header { padding-bottom: 2rem; } .site-footer { flex-direction: column; align-items: flex-start; gap: 1rem; } }
+    @media (max-width: 480px) { .nav-links { gap: 1rem; } .nav-links a { font-size: 0.8125rem; } }
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+    <nav class="nav">
+      <a href="/" class="nav-logo">Will Herring</a>
+      <ul class="nav-links">
+        <li><a href="/">Work</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/cv.html" class="active">CV</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="page-header">
+      <div class="page-header-left">
+        <p class="page-eyebrow">CV</p>
+        <h1 class="page-title">William Herring</h1>
+      </div>
+      <a href="https://drive.google.com/file/d/1zbgqOi4Bca81UNZcesyY9ZmqcerdlJs-/view" target="_blank" rel="noopener" class="download-link">
+        Download PDF
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </a>
+    </div>
+    <div class="cv-layout">
+      <main>
+        <section class="cv-section">
+          <h2 class="cv-section-title">Experience</h2>
+          <div class="cv-role">
+            <div class="cv-role-header">
+              <p class="cv-company">Sweet Baby Inc.</p>
+              <p class="cv-position">Senior Writer / Designer / Artist</p>
+              <div class="cv-meta">
+                <span class="cv-date">June 2021 – May 2025</span>
+                <span class="cv-location">Montreal, QC</span>
+              </div>
+            </div>
+            <ul class="cv-bullets">
+              <li>Narrative design, scriptwriting, and creative leadership across AAA and indie game projects — from early concept through production and launch.</li>
+              <li>Wrote dialogue, barks, cinematics, quests, casting sides, character bios, and worldbuilding documentation across a wide range of genres and client studios.</li>
+              <li>Managed writing teams, led writers' rooms, and provided creative feedback for internal and external narrative talent.</li>
+              <li>Translated complex gameplay systems and technical constraints into clear, emotionally resonant narrative frameworks and player-facing storytelling.</li>
+              <li>Contributed graphic design, web design, branding, illustration, and animation for both internal studio initiatives and client-facing materials.</li>
+              <li>Perhaps most vitally: created several hundred bespoke Slack emojis.</li>
+            </ul>
+            <div class="cv-credits">
+              <p class="cv-credits-title">Selected credits</p>
+              <ul class="cv-credits-list">
+                <li><strong>Winter Burrow</strong> — Pine Creek Games (2025) · Narrative Design, Writing</li>
+                <li><strong>South of Midnight</strong> — Compulsion Games (2025) · Narrative Production</li>
+                <li><strong>Afterlove EP</strong> — Pikselnesia (2025) · Additional Writing</li>
+                <li><strong>Battle Shapers</strong> — Metric Empire (2024) · Writing, Storyboards</li>
+                <li><strong>Suicide Squad: Kill the Justice League</strong> — Rocksteady (2024) · Team Lead II, Writing</li>
+                <li><strong>Alan Wake II</strong> — Remedy Entertainment (2023) · Additional Narrative Consultation</li>
+                <li><strong>Lost Your Marbles</strong> — Sweet Baby Inc × Panic (2022) · Art Direction, Character Designs</li>
+                <li><strong>Reel Steal</strong> — Sweet Baby Inc × Panic (2022) · Art Direction, Character Designs, Art Mentor</li>
+              </ul>
+            </div>
+            <p class="cv-clients"><strong>Clients include:</strong> Ubisoft, Remedy, Insomniac, Compulsion, Rocksteady, Brass Lion Entertainment, Microsoft</p>
+          </div>
+          <div class="cv-role">
+            <div class="cv-role-header">
+              <p class="cv-company">Willbot Studios</p>
+              <p class="cv-position">Freelance Game Maker / Motion Designer / Creative Generalist</p>
+              <div class="cv-meta">
+                <span class="cv-date">May 2018 – Present</span>
+                <span class="cv-location">NYC · VT · Toronto</span>
+              </div>
+            </div>
+            <ul class="cv-bullets">
+              <li>Multidisciplinary creative work spanning narrative, visual design, motion graphics, and interactive experiences for platforms, products, and brands.</li>
+              <li>Developed original games for web, mobile, desktop, and handheld — several of which were featured in museum exhibitions and covered by major press outlets.</li>
+              <li>Campaign concepts, messaging frameworks, and pitch materials for digital, social, and interactive platforms.</li>
+            </ul>
+            <p class="cv-clients"><strong>Clients include:</strong> Adult Swim, Jam City, Noom, Reddit, Glowforge, Twitter, BarkBox, Kinship, Panic, Praytell, CVS Health</p>
+          </div>
+          <div class="cv-role">
+            <div class="cv-role-header">
+              <p class="cv-company">BarkBox</p>
+              <p class="cv-position">Senior Designer</p>
+              <div class="cv-meta">
+                <span class="cv-date">November 2018 – March 2020</span>
+                <span class="cv-location">New York, NY</span>
+              </div>
+            </div>
+            <ul class="cv-bullets">
+              <li>One-person motion design team producing the majority of Bark's social advertising creative — motion graphics, character animation, and static assets across multiple brands.</li>
+              <li>Iterated rapidly based on performance data while keeping the work genuinely playful and true to Bark's voice.</li>
+              <li>Developed augmented reality filters and interactive social experiences, including face filters, world-space 3D objects, and a branded micro-game played with your face.</li>
+            </ul>
+          </div>
+          <div class="cv-role">
+            <div class="cv-role-header">
+              <p class="cv-company">Twitch</p>
+              <p class="cv-position">Branded Content Strategist</p>
+              <div class="cv-meta">
+                <span class="cv-date">May 2016 – November 2018</span>
+                <span class="cv-location">San Francisco, CA</span>
+              </div>
+            </div>
+            <ul class="cv-bullets">
+              <li>Developed first-to-market branded execution opportunities for major partners — translating Twitch's platform capabilities into creative campaigns that actually worked for the community.</li>
+              <li>Creative ideation, copywriting, illustration, animation, and design work for pitch decks and platform campaigns.</li>
+              <li>Concepted and helped execute high-profile custom broadcasts and live experiential activations.</li>
+            </ul>
+            <p class="cv-clients"><strong>Clients include:</strong> PlayStation, General Mills, Progressive, Old Spice, Amazon Studios</p>
+          </div>
+          <div class="cv-role">
+            <div class="cv-role-header">
+              <p class="cv-company">BuzzFeed</p>
+              <p class="cv-position">Senior Creative → Director of Creative Development</p>
+              <div class="cv-meta">
+                <span class="cv-date">May 2012 – May 2016</span>
+                <span class="cv-location">New York, NY</span>
+              </div>
+            </div>
+            <ul class="cv-bullets">
+              <li>Four years, four titles: Senior Creative, Associate Creative Director, Creative Director, Director of Creative Development — each one a bigger version of the same basic problem: make the internet feel less like advertising.</li>
+              <li>Built and managed BuzzFeed's Creative Animation team of illustrators, animators, and designers.</li>
+              <li>Developed new ad products, post formats, and large-scale custom integrations for BuzzFeed's native advertising platform.</li>
+            </ul>
+            <p class="cv-clients"><strong>Clients include:</strong> Sony, Google, Honda, H&amp;R Block, Hershey, AMC Networks, Verizon</p>
+          </div>
+          <div class="cv-role">
+            <div class="cv-role-header">
+              <p class="cv-company">GamePro Media</p>
+              <p class="cv-position">Editorial Assistant / Reviews Editor</p>
+              <div class="cv-meta">
+                <span class="cv-date">January 2009 – December 2011</span>
+                <span class="cv-location">San Francisco, CA</span>
+              </div>
+            </div>
+            <ul class="cv-bullets">
+              <li>Managed GamePro Magazine and GamePro.com's reviews vertical and editorial calendar across print and web.</li>
+              <li>Produced features, reviews, and cover stories — including trips to Tokyo and Shanghai to interview Fumito Ueda and American McGee.</li>
+            </ul>
+          </div>
+        </section>
+        <section class="cv-section">
+          <h2 class="cv-section-title">Education</h2>
+          <div class="cv-role">
+            <div class="cv-role-header">
+              <p class="cv-company">Academy of Art University</p>
+              <p class="cv-position">BFA — Screenwriting for Motion Pictures and Television</p>
+              <div class="cv-meta"><span class="cv-date">2005 – 2009</span><span class="cv-location">San Francisco, CA</span></div>
+            </div>
+          </div>
+          <div class="cv-role" style="margin-top: 1.5rem;">
+            <div class="cv-role-header">
+              <p class="cv-company">General Assembly</p>
+              <p class="cv-position">Visual Design Certification</p>
+              <div class="cv-meta"><span class="cv-date">2016</span><span class="cv-location">New York, NY</span></div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <aside class="cv-sidebar">
+        <div class="sidebar-block">
+          <p class="sidebar-label">Contact</p>
+          <ul class="sidebar-list">
+            <li><a href="mailto:will@likethefish.net" style="color: var(--coral);">will@likethefish.net</a></li>
+            <li><a href="https://linkedin.com/in/will-herring-9464b617" target="_blank" rel="noopener" style="color: var(--coral);">LinkedIn</a></li>
+            <li>Toronto, ON</li>
+            <li style="color: var(--ink-light); font-size: 0.8125rem;">Open to remote &amp; relocation</li>
+          </ul>
+        </div>
+        <div class="sidebar-block">
+          <p class="sidebar-label">Skills</p>
+          <div class="sidebar-tags">
+            <span class="sidebar-tag">Narrative Design</span>
+            <span class="sidebar-tag">Scriptwriting</span>
+            <span class="sidebar-tag">Creative Direction</span>
+            <span class="sidebar-tag">Game Design</span>
+            <span class="sidebar-tag">Brand Strategy</span>
+            <span class="sidebar-tag">Motion Design</span>
+            <span class="sidebar-tag">Illustration</span>
+            <span class="sidebar-tag">Art Direction</span>
+            <span class="sidebar-tag">Unity</span>
+            <span class="sidebar-tag">Adobe CC</span>
+            <span class="sidebar-tag">Cinema 4D</span>
+            <span class="sidebar-tag">Pitch Development</span>
+          </div>
+        </div>
+        <div class="sidebar-block">
+          <p class="sidebar-label">Press &amp; Recognition</p>
+          <ul class="sidebar-list">
+            <li>Victoria &amp; Albert Museum</li>
+            <li>Smithsonian American Art Museum</li>
+            <li>Brooklyn Academy of Music</li>
+            <li>Polygon, Kotaku, The Verge</li>
+            <li>Fast Company, Engadget</li>
+            <li>Boing Boing, Mashable</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <footer class="site-footer">
+      <span class="footer-name">Will Herring</span>
+      <ul class="footer-links">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/cv.html">CV</a></li>
+        <li><a href="mailto:will@likethefish.net">will@likethefish.net</a></li>
+        <li><a href="https://linkedin.com/in/will-herring-9464b617" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>
