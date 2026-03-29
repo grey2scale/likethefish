@@ -814,6 +814,57 @@ a { color: inherit; text-decoration: none; }
 }
 .contact-link:hover .contact-link-arrow { stroke: var(--coral); transform: translateX(2px); }
 
+/* ─── Sub-project rows (BuzzFeed hub etc.) ─── */
+.sub-projects { margin-top: 2.5rem; }
+.sub-projects-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--ink-faint);
+}
+.sub-project-row {
+  display: grid;
+  grid-template-columns: 72px 1fr 1rem;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--ink-faint);
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.15s;
+}
+.sub-project-row:hover { opacity: 0.6; }
+.sub-project-thumb {
+  width: 72px;
+  height: 54px;
+  border-radius: 5px;
+  object-fit: cover;
+  display: block;
+  background: #ece9e3;
+}
+.sub-project-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+.sub-project-desc {
+  font-size: 0.8125rem;
+  color: var(--ink-mid);
+  line-height: 1.45;
+}
+.sub-project-arrow { color: var(--ink-light); }
+.sub-project-arrow svg {
+  width: 14px; height: 14px;
+  stroke: currentColor; fill: none;
+  stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
+}
+
 /* ─── Responsive additions ─── */
 @media (max-width: 860px) {
   .about-layout { grid-template-columns: 1fr; gap: 3rem; }
