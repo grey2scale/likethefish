@@ -840,7 +840,7 @@ a { color: inherit; text-decoration: none; }
 .sub-project-row:hover { opacity: 0.6; }
 .sub-project-thumb {
   width: 72px;
-  height: 54px;
+  height: 72px;
   border-radius: 5px;
   object-fit: cover;
   display: block;
