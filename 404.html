@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Will Herring</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+    .error-code {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(6rem, 20vw, 12rem);
+      line-height: 1;
+      color: var(--coral);
+      opacity: 0.18;
+      letter-spacing: -0.02em;
+      margin: 0;
+      user-select: none;
+    }
+    .error-body {
+      margin-top: -2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .error-body h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin: 0;
+    }
+    .error-body h1 em {
+      font-style: italic;
+      color: var(--coral);
+    }
+    .error-body p {
+      font-size: 1rem;
+      color: var(--ink-mid);
+      max-width: 36ch;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+    .error-actions a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.625rem 1.25rem;
+      border-radius: 999px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .error-actions .btn-primary {
+      background: var(--coral);
+      color: #fff;
+    }
+    .error-actions .btn-primary:hover {
+      background: #c04e27;
+    }
+    .error-actions .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink-faint);
+    }
+    .error-actions .btn-secondary:hover {
+      background: var(--ink-faint);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">Will Herring</a>
+    <div class="nav-links">
+      <a href="index.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main class="error-page">
+    <p class="error-code" aria-hidden="true">404</p>
+    <div class="error-body">
+      <h1>Nothing to see here.<br><em>Like the fish.</em></h1>
+      <p>This page must have swum off somewhere. Try heading back to the work, or poke around from the top.</p>
+      <div class="error-actions">
+        <a href="index.html" class="btn-primary">← Back to work</a>
+        <a href="about.html" class="btn-secondary">About Will</a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
