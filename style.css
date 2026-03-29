@@ -224,6 +224,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 1.5rem;
 }
 .media-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.media-grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .media-item {
   border-radius: 8px;
   overflow: hidden;
@@ -528,6 +529,7 @@ a { color: inherit; text-decoration: none; }
   /* project pages */
   .media-grid { grid-template-columns: 1fr; }
   .media-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .media-grid.cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .credits-list { grid-template-columns: 1fr; }
   .next-project { gap: 1rem; }
   .next-title { font-size: 1.125rem; }
