@@ -2,463 +2,795 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Will Herring — Creative Director, Writer &amp; Game Maker</title>
+  <title>Will Herring — Creative Director, Writer & Game Maker</title>
   <meta name="description" content="Fifteen years of making things across games, advertising, and interactive media. Creative director, writer, and game maker. Based in Toronto.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --coral:        #D85A30;
+      --coral-light:  #FAECE7;
+      --coral-mid:    #F0997B;
+      --ink:          #1a1814;
+      --ink-mid:      #4a4844;
+      --ink-light:    #8a8784;
+      --ink-faint:    #e8e5e0;
+      --page:         #faf9f7;
+      --white:        #ffffff;
+
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+
+      --max-w: 1040px;
+      --pad:   2rem;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--page);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    /* ─── Nav ─── */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 2rem 0 1.75rem;
+      border-bottom: 1px solid var(--ink-faint);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--ink-mid);
+      letter-spacing: 0.01em;
+      transition: color 0.15s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--coral);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 4rem 0 3.5rem;
+      max-width: 680px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--coral);
+    }
+
+    .hero-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-heading em {
+      font-style: italic;
+      color: var(--ink-mid);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink-mid);
+      max-width: 560px;
+    }
+
+    .hero-sub strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ─── Work Section ─── */
+    .work-section { padding-top: 3rem; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--ink-faint);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    /* ─── Filters ─── */
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 400;
+      padding: 5px 14px;
+      border-radius: 100px;
+      border: 1px solid var(--ink-faint);
+      background: transparent;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--ink-light);
+      color: var(--ink);
+    }
+
+    .filter-btn.active {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    /* ─── Work Grid ─── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .work-card.hidden { display: none; }
+
+    .work-thumb {
+      aspect-ratio: 4 / 3;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .work-thumb-bg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .work-card:hover .work-thumb-bg { transform: scale(1.03); }
+
+    .work-thumb-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .work-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.125rem;
+      flex-wrap: wrap;
+    }
+
+    .work-tag {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .work-tag.tag-games    { color: #185FA5; }
+    .work-tag.tag-brands   { color: #3B6D11; }
+    .work-tag.tag-motion   { color: #854F0B; }
+    .work-tag.tag-personal { color: var(--coral); }
+    .work-tag.tag-writing  { color: #5B3B8C; }
+
+    .work-tag-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--ink-faint);
+      flex-shrink: 0;
+    }
+
+    .work-title {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .work-desc {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.5;
+    }
+
+    /* ─── Press Strip ─── */
+    .press-strip {
+      border-top: 1px solid var(--ink-faint);
+      border-bottom: 1px solid var(--ink-faint);
+      padding: 1.25rem 0;
+      margin-bottom: 5rem;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .press-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      white-space: nowrap;
+      padding-right: 2rem;
+      border-right: 1px solid var(--ink-faint);
+      flex-shrink: 0;
+    }
+
+    .press-outlets {
+      display: flex;
+      gap: 2.5rem;
+      padding-left: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .press-outlet {
+      font-size: 0.8125rem;
+      color: var(--ink-light);
+      white-space: nowrap;
+      font-style: italic;
+    }
+
+    /* ─── Footer ─── */
+    .site-footer {
+      border-top: 1px solid var(--ink-faint);
+      padding: 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .footer-name {
+      font-family: var(--font-display);
+      font-size: 0.9375rem;
+      color: var(--ink-mid);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: var(--ink-light);
+      transition: color 0.15s ease;
+    }
+
+    .footer-links a:hover { color: var(--coral); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 720px) {
+      :root { --pad: 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero { padding: 2.5rem 0; }
+      .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 1rem; }
+      .press-outlets { gap: 1.25rem; }
+      .site-footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .work-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.8125rem; }
+    }
+  </style>
 </head>
+
 <body>
-<div class="site-wrap">
+  <div class="site-wrap">
 
-  <!-- Nav -->
-  <nav class="nav">
-    <a href="index.html" class="nav-logo">Will Herring</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">Will Herring</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-  <!-- Hero -->
-  <header class="hero">
-    <p class="hero-eyebrow">Will Herring</p>
-    <h1 class="hero-heading">
-      Creative director, writer,<br>
-      <em>and game maker.</em>
-    </h1>
-    <p class="hero-sub">
-      Fifteen years of making things across <strong>games</strong>, <strong>advertising</strong>, and <strong>interactive media</strong> — from AAA narrative to browser games about cats. Based in Toronto, open to what's next.
-    </p>
-  </header>
+    <header class="hero">
+      <p class="hero-eyebrow">Will Herring</p>
+      <h1 class="hero-heading">
+        Creative director, writer,<br>
+        <em>and game maker.</em>
+      </h1>
+      <p class="hero-sub">
+        Fifteen years of making things across <strong>games</strong>, <strong>advertising</strong>, and <strong>interactive media</strong> — from AAA narrative to browser games about cats. Based in Toronto, open to what's next.
+      </p>
+    </header>
 
-  <!-- Work -->
-  <section class="work-section">
-    <div class="section-header">
-      <span class="section-label">Selected work</span>
-      <div class="filters" role="group" aria-label="Filter work by category">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="games">Games</button>
-        <button class="filter-btn" data-filter="brands">Brands &amp; Advertising</button>
-        <button class="filter-btn" data-filter="motion">Motion &amp; Art</button>
-        <button class="filter-btn" data-filter="personal">Personal</button>
-        <button class="filter-btn" data-filter="writing">Writing</button>
+    <section class="work-section">
+      <div class="section-header">
+        <span class="section-label">Selected work</span>
+        <div class="filters" role="group" aria-label="Filter work by category">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="games">Games</button>
+          <button class="filter-btn" data-filter="brands">Brands &amp; Advertising</button>
+          <button class="filter-btn" data-filter="motion">Motion &amp; Art</button>
+          <button class="filter-btn" data-filter="personal">Personal</button>
+          <button class="filter-btn" data-filter="writing">Writing</button>
+        </div>
+      </div>
+
+      <div class="work-grid" id="work-grid">
+
+        <!-- Sweet Baby Inc -->
+        <a href="work/sweet-baby-inc.html" class="work-card" data-categories="games brands writing">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #E6F1FB;">
+              <img src="assets/index/card-sweet-baby-inc.png" alt="Sweet Baby Inc." loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-brands">Brands &amp; Advertising</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-writing">Writing</span>
+          </div>
+          <p class="work-title">Sweet Baby Inc.</p>
+          <p class="work-desc">Narrative design &amp; writing for Rocksteady, Remedy, Compulsion, Pikselnesia, and more.</p>
+        </a>
+
+        <!-- Pet the Pup -->
+        <a href="work/pet-the-pup.html" class="work-card" data-categories="games personal">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #EAF3DE;">
+              <img src="assets/index/card-pet-the-pup.gif" alt="Pet the Pup at the Party" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-personal">Personal</span>
+          </div>
+          <p class="work-title">Pet the Pup at the Party</p>
+          <p class="work-desc">A game about social anxiety and very good dogs. Polygon, Kotaku, The Verge. Featured at the V&amp;A.</p>
+        </a>
+
+        <!-- BuzzFeed -->
+        <a href="work/buzzfeed.html" class="work-card" data-categories="brands">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #FAEEDA;">
+              <img src="assets/index/card-buzzfeed.png" alt="BuzzFeed" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-brands">Brands &amp; Advertising</span>
+          </div>
+          <p class="work-title">BuzzFeed</p>
+          <p class="work-desc">Four years leading branded content creative — from Senior Creative to Director of Creative Development.</p>
+        </a>
+
+        <!-- Twitch -->
+        <a href="work/twitch.html" class="work-card" data-categories="brands">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #EEEDFE;">
+              <img src="assets/index/card-twitch.webp" alt="Twitch Custom Solutions" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-brands">Brands &amp; Advertising</span>
+          </div>
+          <p class="work-title">Twitch Custom Solutions</p>
+          <p class="work-desc">Branded content strategy, animation, and experiential activations for PlayStation, Old Spice, Progressive, and more.</p>
+        </a>
+
+        <!-- BarkBox -->
+        <a href="work/barkbox.html" class="work-card" data-categories="brands motion">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #FAEEDA;">
+              <img src="assets/index/card-bark.gif" alt="BarkBox" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-brands">Brands &amp; Advertising</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-motion">Motion</span>
+          </div>
+          <p class="work-title">BarkBox</p>
+          <p class="work-desc">Motion design, character animation, and AR filters for Bark's social advertising.</p>
+        </a>
+
+        <!-- Motion & Animation -->
+        <a href="work/motion.html" class="work-card" data-categories="motion">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #F1EFE8;">
+              <img src="assets/index/card-motion-animation.gif" alt="Motion &amp; Animation" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-motion">Motion &amp; Art</span>
+          </div>
+          <p class="work-title">Motion &amp; Animation</p>
+          <p class="work-desc">Motion graphics and animation for Noom, Bark, Glowforge, Jam City, and more.</p>
+        </a>
+
+        <!-- Reel Steal -->
+        <a href="work/reel-steal.html" class="work-card" data-categories="games motion">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #E1F5EE;">
+              <img src="assets/index/card-reel-steal.webp" alt="Reel Steal" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-motion">Motion &amp; Art</span>
+          </div>
+          <p class="work-title">Reel Steal</p>
+          <p class="work-desc">Art direction &amp; character design for the Playdate heist game where you steal art with a fishing pole.</p>
+        </a>
+
+        <!-- Lost Your Marbles -->
+        <a href="work/lost-your-marbles.html" class="work-card" data-categories="games motion">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #FBEAF0;">
+              <img src="assets/index/card-lost-your-marbles.webp" alt="Lost Your Marbles" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-motion">Motion &amp; Art</span>
+          </div>
+          <p class="work-title">Lost Your Marbles</p>
+          <p class="work-desc">Art direction &amp; character design for the Playdate visual novel from Sweet Baby Inc. and Panic.</p>
+        </a>
+
+        <!-- Smash n' Dab -->
+        <a href="work/smash-n-dab.html" class="work-card" data-categories="games personal">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #EAF3DE;">
+              <img src="assets/index/card-smash-n-dab.gif" alt="Smash n' Dab" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-personal">Personal</span>
+          </div>
+          <p class="work-title">Smash n' Dab</p>
+          <p class="work-desc">Browser arcade game for Adult Swim. Featured in the Smithsonian Arcade 2023.</p>
+        </a>
+
+        <!-- Garbage Cat -->
+        <a href="work/garbage-cat.html" class="work-card" data-categories="games personal">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #FAECE7;">
+              <img src="assets/index/card-garbage-cat.gif" alt="My Garbage Cat Wakes Me Up At 3AM" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-personal">Personal</span>
+          </div>
+          <p class="work-title">My Garbage Cat Wakes Me Up At 3AM</p>
+          <p class="work-desc">Cat chaos simulator. Boing Boing, The Verge, Kotaku, Mashable, and Kumail Nanjiani's podcast.</p>
+        </a>
+
+        <!-- Is Everyone Mad At Me -->
+        <a href="work/is-everyone-mad-at-me.html" class="work-card" data-categories="games personal">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #FAECE7;">
+              <img src="assets/index/card-is-everyone-mad.gif" alt="Is Everyone Mad At Me?" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-personal">Personal</span>
+          </div>
+          <p class="work-title">Is Everyone Mad At Me?</p>
+          <p class="work-desc">A tiny, experimental Unity game about a feeling. Available on itch.io.</p>
+        </a>
+
+        <!-- Sidewalk Sidestep -->
+        <a href="work/sidewalk-sidestep.html" class="work-card" data-categories="games personal">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #E1F5EE;">
+              <img src="assets/index/card-sidewalk-sidestep.gif" alt="Sidewalk Sidestep" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-personal">Personal</span>
+          </div>
+          <p class="work-title">Sidewalk Sidestep</p>
+          <p class="work-desc">Browser game about awkward sidewalk encounters. Commissioned by Adult Swim.</p>
+        </a>
+
+        <!-- Millennial Swipe Simulator -->
+        <a href="work/millennial-swipe-sim.html" class="work-card" data-categories="games personal">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #FBEAF0;">
+              <img src="assets/index/card-millennial-swipe-sim.gif" alt="Millennial Swipe Simulator" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-personal">Personal</span>
+          </div>
+          <p class="work-title">Millennial Swipe Simulator</p>
+          <p class="work-desc">Dating app satire that got too real. Fast Company, Engadget, Kill Screen. Removed by Match.com.</p>
+        </a>
+
+        <!-- Lonely Dog -->
+        <a href="work/lonely-dog.html" class="work-card" data-categories="games personal">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #E6F1FB;">
+              <img src="assets/index/card-lonely-dog.gif" alt="Lonely Dog Lost in Space" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-personal">Personal</span>
+          </div>
+          <p class="work-title">Lonely Dog Lost in Space</p>
+          <p class="work-desc">Unity game exhibited at the New York Media Center's digital art showcase.</p>
+        </a>
+
+        <!-- Trou de Beigne -->
+        <a href="work/trou-de-beigne.html" class="work-card" data-categories="games brands">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #FAEEDA;">
+              <img src="assets/index/card-trou-de-beigne.webp" alt="Trou de Beigne" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-brands">Brands &amp; Advertising</span>
+          </div>
+          <p class="work-title">Trou de Beigne</p>
+          <p class="work-desc">Mobile game for a beloved Montreal donut shop. iOS &amp; Android, 2018.</p>
+        </a>
+
+        <!-- Death to Cupid -->
+        <a href="work/death-to-cupid.html" class="work-card" data-categories="games brands">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #FBEAF0;">
+              <img src="assets/index/card-death-to-cupid.webp" alt="Death to Cupid" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-brands">Brands &amp; Advertising</span>
+          </div>
+          <p class="work-title">Death to Cupid</p>
+          <p class="work-desc">Art &amp; animation for the Valentine's Day browser game. Covered by AM New York.</p>
+        </a>
+
+        <!-- The Fattest Bird in Brooklyn -->
+        <a href="work/fattest-bird.html" class="work-card" data-categories="games personal">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #EAF3DE;">
+              <img src="assets/index/card-fattest-bird.webp" alt="The Fattest Bird in Brooklyn" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-games">Games</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-personal">Personal</span>
+          </div>
+          <p class="work-title">The Fattest Bird in Brooklyn</p>
+          <p class="work-desc">First Unity game. On Google Play, nominated at Playcrafting NYC Awards.</p>
+        </a>
+
+        <!-- Young James -->
+        <a href="work/young-james.html" class="work-card" data-categories="motion personal">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #F1EFE8;">
+              <img src="assets/index/card-young-james.gif" alt="Young James" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-motion">Motion &amp; Art</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-personal">Personal</span>
+          </div>
+          <p class="work-title">Young James</p>
+          <p class="work-desc">49 million loops and 132k Vine followers making weird short-form animation.</p>
+        </a>
+
+        <!-- Twitter + SXSW -->
+        <a href="work/twitter-sxsw.html" class="work-card" data-categories="brands motion">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #E6F1FB;">
+              <img src="assets/index/card-twitter-sxsw.webp" alt="Twitter + SXSW" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-brands">Brands &amp; Advertising</span>
+            <span class="work-tag-dot"></span>
+            <span class="work-tag tag-motion">Motion &amp; Art</span>
+          </div>
+          <p class="work-title">Twitter + SXSW</p>
+          <p class="work-desc">Illustrated 11 custom food and drink icons for Twitter's SXSW Emoji Engine activation.</p>
+        </a>
+
+        <!-- GamePro: The Last Guardian -->
+        <a href="work/gamepro-last-guardian.html" class="work-card" data-categories="writing">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #F0EAF9;">
+              <img src="assets/index/card-boy-and-his-beast.webp" alt="GamePro: The Last Guardian" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-writing">Writing</span>
+          </div>
+          <p class="work-title">GamePro: The Last Guardian</p>
+          <p class="work-desc">Tokyo 2011 interview with Fumito Ueda. GamePro Magazine May 2011 cover story.</p>
+        </a>
+
+        <!-- GamePro: Alice: Madness Returns -->
+        <a href="work/gamepro-alice.html" class="work-card" data-categories="writing">
+          <div class="work-thumb">
+            <div class="work-thumb-bg" style="background: #F0EAF9;">
+              <img src="assets/index/card-madness-returns.webp" alt="GamePro: Alice: Madness Returns" loading="lazy">
+            </div>
+          </div>
+          <div class="work-meta">
+            <span class="work-tag tag-writing">Writing</span>
+          </div>
+          <p class="work-title">GamePro: Alice: Madness Returns</p>
+          <p class="work-desc">Shanghai 2010 interview with American McGee. GamePro Magazine September 2010 cover story.</p>
+        </a>
+
+      </div>
+    </section>
+
+    <div class="press-strip">
+      <span class="press-label">As seen in</span>
+      <div class="press-outlets">
+        <span class="press-outlet">Polygon</span>
+        <span class="press-outlet">Kotaku</span>
+        <span class="press-outlet">The Verge</span>
+        <span class="press-outlet">Boing Boing</span>
+        <span class="press-outlet">Fast Company</span>
+        <span class="press-outlet">Engadget</span>
+        <span class="press-outlet">Mashable</span>
+        <span class="press-outlet">Waypoint</span>
+        <span class="press-outlet">Destructoid</span>
       </div>
     </div>
 
-    <div class="work-grid" id="work-grid">
+    <footer class="site-footer">
+      <span class="footer-name">Will Herring</span>
+      <ul class="footer-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="mailto:will@likethefish.net">will@likethefish.net</a></li>
+        <li><a href="https://linkedin.com/in/will-herring-9464b617" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </footer>
 
-      <!-- Sweet Baby Inc -->
-      <a href="work/sweet-baby-inc.html" class="work-card" data-categories="games brands writing">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #E6F1FB;">
-            <span class="work-thumb-emoji">🎮</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-brands">Brands</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-writing">Writing</span>
-        </div>
-        <p class="work-title">Sweet Baby Inc.</p>
-        <p class="work-desc">Narrative design &amp; writing for Rocksteady, Remedy, Compulsion, Pikselnesia, and more.</p>
-      </a>
-
-      <!-- Pet the Pup -->
-      <a href="work/pet-the-pup.html" class="work-card" data-categories="games personal">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #EAF3DE;">
-            <span class="work-thumb-emoji">🐾</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-personal">Personal</span>
-        </div>
-        <p class="work-title">Pet the Pup at the Party</p>
-        <p class="work-desc">A game about social anxiety and very good dogs. Polygon, Kotaku, The Verge. Featured at the V&amp;A.</p>
-      </a>
-
-      <!-- BuzzFeed -->
-      <a href="work/buzzfeed.html" class="work-card" data-categories="brands">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #FAEEDA;">
-            <span class="work-thumb-emoji">📺</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-brands">Brands &amp; Advertising</span>
-        </div>
-        <p class="work-title">BuzzFeed</p>
-        <p class="work-desc">Four years leading branded content creative — from Senior Creative to Director of Creative Development.</p>
-      </a>
-
-      <!-- Twitch -->
-      <a href="work/twitch.html" class="work-card" data-categories="brands">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #EEEDFE;">
-            <span class="work-thumb-emoji">📡</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-brands">Brands &amp; Advertising</span>
-        </div>
-        <p class="work-title">Twitch Custom Solutions</p>
-        <p class="work-desc">Branded content strategy, animation, and experiential activations for PlayStation, Old Spice, Progressive, and more.</p>
-      </a>
-
-      <!-- BarkBox -->
-      <a href="work/barkbox.html" class="work-card" data-categories="brands motion">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #FAEEDA;">
-            <span class="work-thumb-emoji">🐶</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-brands">Brands</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-motion">Motion</span>
-        </div>
-        <p class="work-title">BarkBox</p>
-        <p class="work-desc">Motion design, character animation, and AR filters for Bark's social advertising.</p>
-      </a>
-
-      <!-- Motion & Animation -->
-      <a href="work/motion.html" class="work-card" data-categories="motion">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #F1EFE8;">
-            <span class="work-thumb-emoji">✦</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-motion">Motion &amp; Art</span>
-        </div>
-        <p class="work-title">Motion &amp; Animation</p>
-        <p class="work-desc">Motion graphics and animation for Noom, Bark, Glowforge, Jam City, and more.</p>
-      </a>
-
-      <!-- Reel Steal -->
-      <a href="work/reel-steal.html" class="work-card" data-categories="games motion">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #E1F5EE;">
-            <span class="work-thumb-emoji">🎣</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-motion">Art</span>
-        </div>
-        <p class="work-title">Reel Steal</p>
-        <p class="work-desc">Art direction &amp; character design for the Playdate heist game where you steal art with a fishing pole.</p>
-      </a>
-
-      <!-- Lost Your Marbles -->
-      <a href="work/lost-your-marbles.html" class="work-card" data-categories="games motion">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #FBEAF0;">
-            <span class="work-thumb-emoji">🔮</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-motion">Art</span>
-        </div>
-        <p class="work-title">Lost Your Marbles</p>
-        <p class="work-desc">Art direction &amp; character design for the Playdate visual novel from Sweet Baby Inc. and Panic.</p>
-      </a>
-
-      <!-- Smash n' Dab -->
-      <a href="work/smash-n-dab.html" class="work-card" data-categories="games personal">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #EAF3DE;">
-            <span class="work-thumb-emoji">💥</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-personal">Personal</span>
-        </div>
-        <p class="work-title">Smash n' Dab</p>
-        <p class="work-desc">Browser arcade game for Adult Swim. Featured in the Smithsonian Arcade 2023.</p>
-      </a>
-
-      <!-- Garbage Cat -->
-      <a href="work/garbage-cat.html" class="work-card" data-categories="games personal">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #FAECE7;">
-            <span class="work-thumb-emoji">🐱</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-personal">Personal</span>
-        </div>
-        <p class="work-title">My Garbage Cat Wakes Me Up At 3AM</p>
-        <p class="work-desc">Cat chaos simulator. Boing Boing, The Verge, Kotaku, Mashable, and Kumail Nanjiani's podcast.</p>
-      </a>
-
-      <!-- Is Everyone Mad at Me -->
-      <a href="work/is-everyone-mad-at-me.html" class="work-card" data-categories="games personal">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #FAECE7;">
-            <span class="work-thumb-emoji">😬</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-personal">Personal</span>
-        </div>
-        <p class="work-title">Is Everyone Mad At Me?</p>
-        <p class="work-desc">A tiny, experimental Unity game about a feeling. Available on itch.io.</p>
-      </a>
-
-      <!-- Sidewalk Sidestep -->
-      <a href="work/sidewalk-sidestep.html" class="work-card" data-categories="games personal">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #E1F5EE;">
-            <span class="work-thumb-emoji">🚶</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-personal">Personal</span>
-        </div>
-        <p class="work-title">Sidewalk Sidestep</p>
-        <p class="work-desc">Browser game about awkward sidewalk encounters. Commissioned by Adult Swim.</p>
-      </a>
-
-      <!-- Millennial Swipe Sim -->
-      <a href="work/millennial-swipe-sim.html" class="work-card" data-categories="games personal">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #FBEAF0;">
-            <span class="work-thumb-emoji">📱</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-personal">Personal</span>
-        </div>
-        <p class="work-title">Millennial Swipe Simulator</p>
-        <p class="work-desc">Dating app satire that got too real. Fast Company, Engadget, Kill Screen. Removed by Match.com.</p>
-      </a>
-
-      <!-- Lonely Dog -->
-      <a href="work/lonely-dog.html" class="work-card" data-categories="games personal">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #E6F1FB;">
-            <span class="work-thumb-emoji">🚀</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-personal">Personal</span>
-        </div>
-        <p class="work-title">Lonely Dog Lost in Space</p>
-        <p class="work-desc">Unity game exhibited at the New York Media Center's digital art showcase.</p>
-      </a>
-
-      <!-- Trou de Beigne -->
-      <a href="work/trou-de-beigne.html" class="work-card" data-categories="games brands">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #FAEEDA;">
-            <span class="work-thumb-emoji">🍩</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-brands">Brands</span>
-        </div>
-        <p class="work-title">Trou de Beigne</p>
-        <p class="work-desc">Mobile game for a beloved Montreal donut shop. iOS &amp; Android, 2018.</p>
-      </a>
-
-      <!-- Death to Cupid -->
-      <a href="work/death-to-cupid.html" class="work-card" data-categories="games brands">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #FBEAF0;">
-            <span class="work-thumb-emoji">💘</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-brands">Brands</span>
-        </div>
-        <p class="work-title">Death to Cupid</p>
-        <p class="work-desc">Art &amp; animation for the Valentine's Day browser game. Covered by AM New York.</p>
-      </a>
-
-      <!-- Fattest Bird in Brooklyn -->
-      <a href="work/fattest-bird.html" class="work-card" data-categories="games personal">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #EAF3DE;">
-            <span class="work-thumb-emoji">🐦</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-games">Games</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-personal">Personal</span>
-        </div>
-        <p class="work-title">The Fattest Bird in Brooklyn</p>
-        <p class="work-desc">First Unity game. On Google Play, nominated at Playcrafting NYC Awards.</p>
-      </a>
-
-      <!-- Young James -->
-      <a href="work/young-james.html" class="work-card" data-categories="motion personal">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #F1EFE8;">
-            <span class="work-thumb-emoji">🎬</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-motion">Motion</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-personal">Personal</span>
-        </div>
-        <p class="work-title">Young James</p>
-        <p class="work-desc">49 million loops and 132k Vine followers making weird short-form animation.</p>
-      </a>
-
-      <!-- Twitter + SXSW -->
-      <a href="work/twitter-sxsw.html" class="work-card" data-categories="brands motion">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #E6F1FB;">
-            <span class="work-thumb-emoji">🐦</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-brands">Brands</span>
-          <span class="work-tag-dot"></span>
-          <span class="work-tag tag-motion">Motion</span>
-        </div>
-        <p class="work-title">Twitter + SXSW</p>
-        <p class="work-desc">Illustrated 11 custom food and drink icons for Twitter's SXSW Emoji Engine activation.</p>
-      </a>
-
-      <!-- GamePro: Last Guardian -->
-      <a href="work/gamepro-last-guardian.html" class="work-card" data-categories="writing">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #F0EAF9;">
-            <span class="work-thumb-emoji">📰</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-writing">Writing</span>
-        </div>
-        <p class="work-title">GamePro: The Last Guardian</p>
-        <p class="work-desc">Tokyo 2011 interview with Fumito Ueda. GamePro Magazine May 2011 cover story.</p>
-      </a>
-
-      <!-- GamePro: Alice -->
-      <a href="work/gamepro-alice.html" class="work-card" data-categories="writing">
-        <div class="work-thumb">
-          <div class="work-thumb-bg" style="background: #F0EAF9;">
-            <span class="work-thumb-emoji">📰</span>
-          </div>
-          <span class="work-thumb-placeholder">img</span>
-        </div>
-        <div class="work-meta">
-          <span class="work-tag tag-writing">Writing</span>
-        </div>
-        <p class="work-title">GamePro: Alice: Madness Returns</p>
-        <p class="work-desc">Shanghai 2010 interview with American McGee. GamePro Magazine September 2010 cover story.</p>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- Press Strip -->
-  <div class="press-strip">
-    <span class="press-label">As seen in</span>
-    <div class="press-outlets">
-      <span class="press-outlet">Polygon</span>
-      <span class="press-outlet">Kotaku</span>
-      <span class="press-outlet">The Verge</span>
-      <span class="press-outlet">Boing Boing</span>
-      <span class="press-outlet">Fast Company</span>
-      <span class="press-outlet">Engadget</span>
-      <span class="press-outlet">Mashable</span>
-      <span class="press-outlet">GamePro</span>
-      <span class="press-outlet">Kill Screen</span>
-      <span class="press-outlet">Destructoid</span>
-    </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <span class="footer-name">Will Herring</span>
-    <ul class="footer-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="cv.html">CV</a></li>
-      <li><a href="mailto:will@likethefish.net">will@likethefish.net</a></li>
-      <li><a href="https://linkedin.com/in/will-herring-9464b617" target="_blank" rel="noopener">LinkedIn</a></li>
-    </ul>
-  </footer>
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.work-card');
 
-</div><!-- /site-wrap -->
-
-<script>
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.work-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      cards.forEach(card => {
-        if (filter === 'all') {
-          card.classList.remove('hidden');
-        } else {
-          const cats = card.dataset.categories || '';
-          if (cats.split(' ').includes(filter)) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        cards.forEach(card => {
+          if (filter === 'all') {
             card.classList.remove('hidden');
           } else {
-            card.classList.add('hidden');
+            const cats = card.dataset.categories || '';
+            if (cats.split(' ').includes(filter)) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
           }
-        }
+        });
       });
     });
-  });
-</script>
+  </script>
+
 </body>
 </html>
