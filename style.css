@@ -865,6 +865,32 @@ a { color: inherit; text-decoration: none; }
   stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
 }
 
+/* ─── Responsive video embeds ─── */
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #111;
+}
+.video-embed iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+  border-radius: 8px;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+@media (max-width: 600px) {
+  .video-grid { grid-template-columns: 1fr; }
+}
+
 /* ─── Responsive additions ─── */
 @media (max-width: 860px) {
   .about-layout { grid-template-columns: 1fr; gap: 3rem; }
