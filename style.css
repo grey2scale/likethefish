@@ -299,6 +299,10 @@ a { color: inherit; text-decoration: none; }
 .press-list li a:hover { color: var(--coral); }
 .press-outlet-name { font-weight: 500; color: var(--ink); font-size: 0.8125rem; flex-shrink: 0; }
 .press-headline { color: var(--ink-mid); font-weight: 300; }
+.press-list li.has-meta { display: flex; flex-direction: column; gap: 0.2rem; }
+.press-item-meta { font-size: 0.8125rem; color: var(--ink-light); font-weight: 300; padding-left: 0.125rem; }
+.press-item-meta a { color: var(--coral); }
+.press-item-meta a:hover { text-decoration: underline; }
 
 /* ─── Next Project ─── */
 .next-project {
