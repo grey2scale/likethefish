@@ -6,7 +6,7 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sidewalk Sidestep — Will Herring</title>
-  <meta name="description" content="Browser game about awkward sidewalk interactions">
+  <meta name="description" content="Browser game about awkward sidewalk interactions, commissioned by Adult Swim.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
@@ -14,6 +14,8 @@
 </head>
 <body>
   <div class="site-wrap">
+
+    <!-- Nav -->
     <nav class="nav">
       <a href="../index.html" class="nav-logo">Will Herring</a>
       <ul class="nav-links">
@@ -23,49 +25,90 @@
         <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
+
+    <!-- Back -->
     <a href="../index.html" class="back-link">
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       All work
     </a>
 
-    <section class="project-header">
+    <!-- Project Header -->
+    <header class="project-header">
       <div class="project-meta">
         <span class="project-tag tag-games">Games</span>
+        <span class="project-tag tag-brands">Brands</span>
         <span class="project-tag tag-personal">Personal</span>
         <span class="project-year">2018</span>
       </div>
+
       <h1 class="project-title">Sidewalk Sidestep</h1>
-      <p class="project-role">Design, Programming, Art — <span>everything</span></p>
+
+      <p class="project-role">Role: <span>Design, Programming, Art — everything</span></p>
+
       <div class="project-description">
-        <p>Sidewalk Sidestep is a browser game about awkward sidewalk interactions, profuse apologies, and 'Hey, I'm walkin' here!' jokes — three things that I know a lot about. Commissioned by the super rad folks at [adult swim] and created in Unity. Art, design, programming, etc, by me. Super catchy 8-bit bossa nova by the super talented Joth (CC0).</p>
+        <p>Sidewalk Sidestep is a browser game about awkward sidewalk interactions, profuse apologies, and "Hey, I'm walkin' here!" jokes — three things that I know a lot about.</p>
+        <p>Commissioned by the super rad folks at [adult swim] and built in Unity. Art, design, programming, etc, all by me. Super catchy <a href="https://opengameart.org/content/bossa-nova" target="_blank" rel="noopener" style="color: var(--coral);">8-Bit Bossa Nova</a> by the super talented Joth (CC0).</p>
       </div>
+
       <div class="project-links">
-        <a href="https://adultswim.com/games/sidewalk-sidestep" class="project-link primary" target="_blank" rel="noopener">
-          Play it
+        <a href="https://grey2scale.itch.io/sidewalk-sidestep" class="project-link primary" target="_blank" rel="noopener">
+          Play on itch.io
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
-    </section>
+    </header>
 
     <hr class="divider">
 
-    <section class="media-section">
-      <div class="media-hero">
-        <div class="media-placeholder">Pixel art sidewalk scene</div>
-      </div>
-      <div class="media-grid">
-        <div class="media-item">
-          <div class="media-placeholder">Screenshot 1</div>
-        </div>
-        <div class="media-item">
-          <div class="media-placeholder">Screenshot 2</div>
-        </div>
-      </div>
-    </section>
+    <!-- Media -->
+    <div class="media-section">
 
+      <!-- Hero GIF -->
+      <div class="media-hero">
+        <img src="../assets/sidewalk-sidestep/hero-sidewalk-sidestep.gif" alt="Sidewalk Sidestep — navigating an awkward sidewalk encounter">
+      </div>
+
+      <!-- Gameplay GIFs 2×2 -->
+      <div class="media-grid cols-2">
+        <div class="media-item wide">
+          <img src="../assets/sidewalk-sidestep/gif-sidewalk-sidestep-01.gif" alt="Sidewalk Sidestep gameplay">
+        </div>
+        <div class="media-item wide">
+          <img src="../assets/sidewalk-sidestep/gif-sidewalk-sidestep-02.gif" alt="Sidewalk Sidestep gameplay">
+        </div>
+        <div class="media-item wide">
+          <img src="../assets/sidewalk-sidestep/gif-sidewalk-sidestep-03.gif" alt="Sidewalk Sidestep gameplay">
+        </div>
+        <div class="media-item wide">
+          <img src="../assets/sidewalk-sidestep/gif-sidewalk-sidestep-04.gif" alt="Sidewalk Sidestep gameplay">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Credits -->
+    <div class="credits">
+      <p class="credits-label">Credits</p>
+      <ul class="credits-list">
+        <li>
+          <strong>Art, Design, Programming</strong>
+          Will Herring
+        </li>
+        <li>
+          <strong>Music</strong>
+          <a href="https://opengameart.org/content/bossa-nova" target="_blank" rel="noopener">8-Bit Bossa Nova by Joth (CC0)</a>
+        </li>
+        <li>
+          <strong>Commissioned by</strong>
+          [adult swim]
+        </li>
+      </ul>
+    </div>
+
+    <!-- Next Project -->
     <a href="lonely-dog.html" class="next-project">
       <div>
-        <p class="next-label">Next Project</p>
+        <p class="next-label">Next project</p>
         <p class="next-title">Lonely Dog Lost in Space</p>
       </div>
       <div class="next-arrow">
@@ -73,6 +116,7 @@
       </div>
     </a>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <span class="footer-name">Will Herring</span>
       <ul class="footer-links">
@@ -82,6 +126,7 @@
         <li><a href="https://linkedin.com/in/will-herring-9464b617" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </footer>
-  </div>
+
+  </div><!-- /site-wrap -->
 </body>
 </html>
