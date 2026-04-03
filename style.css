@@ -153,6 +153,8 @@ a { color: inherit; text-decoration: none; }
   font-weight: 300;
   line-height: 1.75;
   color: var(--ink-mid);
+  max-width: 620px;
+  text-wrap: pretty;
 }
 .project-description p + p { margin-top: 1em; }
 .project-description a {
@@ -205,6 +207,26 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid rgba(0,0,0,0.06);
 }
 .media-hero img { width: 100%; height: auto; display: block; }
+.media-hero-link { display: block; text-decoration: none; transition: opacity 0.18s ease; }
+.media-hero-link:hover { opacity: 0.88; }
+.media-attribution {
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin-top: 1.25rem;
+}
+.project-pullquote {
+  border-left: 2px solid var(--coral);
+  margin: 2rem 0 0;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+}
+.project-pullquote p {
+  font-style: italic;
+  color: var(--ink-light);
+  margin: 0 0 0.5rem;
+  line-height: 1.6;
+}
+.project-pullquote p:last-child { margin-bottom: 0; }
 .media-placeholder {
   width: 100%;
   aspect-ratio: 16/9;
@@ -385,7 +407,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--coral);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 .hero-eyebrow::before {
   content: '';
@@ -766,10 +788,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ─── Contact layout ─── */
 .contact-wrap {
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  padding: 5rem 0;
+  padding: 4rem 0 3rem;
 }
 .contact-inner { max-width: 560px; }
 .contact-heading {
@@ -985,5 +1004,5 @@ a { color: inherit; text-decoration: none; }
 }
 @media (max-width: 720px) {
   .page-header { padding-bottom: 2rem; }
-  .contact-wrap { padding: 3rem 0; min-height: auto; }
+  .contact-wrap { padding: 2.5rem 0 2rem; }
 }
