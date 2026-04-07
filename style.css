@@ -486,7 +486,7 @@ a { color: inherit; text-decoration: none; }
 }
 .work-card.hidden { display: none; }
 .work-thumb {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -494,12 +494,14 @@ a { color: inherit; text-decoration: none; }
 }
 .work-thumb-bg {
   width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: transform 0.3s ease;
 }
 .work-card:hover .work-thumb-bg { transform: scale(1.03); }
+.work-thumb-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .work-thumb-emoji { font-size: 2.5rem; line-height: 1; }
 .work-thumb-placeholder {
   position: absolute;
